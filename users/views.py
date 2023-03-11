@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
+def profile_view(request):
+    return render(request, "users/profile.html")
+
 def register_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
