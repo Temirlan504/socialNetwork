@@ -1,0 +1,12 @@
+{% extends "newsfeed/layout.html" %}
+
+{% block body %}
+    <h1>Register here!</h1>
+
+    <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Sign Up">
+    </form>
+    <a href="{% url 'users:login' %}">Already have an account?</a>
+{% endblock %}
