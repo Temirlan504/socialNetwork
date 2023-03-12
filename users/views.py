@@ -15,7 +15,8 @@ def register_view(request):
         form = UserCreationForm()
 
     return render(request, "users/register.html", {
-        "form": form
+        "form": form,
+        "title": "Register"
     })
 
 def login_view(request):
@@ -29,7 +30,8 @@ def login_view(request):
             return redirect("newsfeed:main")
         else:
             return render(request, "users/login.html", {
-                "message": "Invalid credentials"
+                "message": "Invalid credentials",
+                "title": "Login"
             })
 
     return render(request, "users/login.html")
@@ -37,5 +39,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request, "users/login.html", {
-        "message": "Logged out"
+        "message": "Logged out",
+        "title": "Login"
     })

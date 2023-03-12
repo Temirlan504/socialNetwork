@@ -1,11 +1,14 @@
 {% extends "newsfeed/layout.html" %}
 
 {% block body %}
-    <h1>Timbook</h1>
-    <a href="{% url 'users:logout' %}">Log out</a>
+    <div class="navbar">
+        <h1>Timbook</h1>
+        <a href="{% url 'users:logout' %}">Log out</a>
+    </div>
     <hr>
     {% for post in posts %}
-        <h6>{{ post.author }} {{ post.date_posted }}</h6>
+        <h6><a href="{% url 'users:profile' %}">{{ post.author }}</a></h6>
+        <h6>{{ post.date_posted }}</h6>
         <h2>{{ post.title }}</h2>
         <p>{{ post.content }}</p>
         <hr>

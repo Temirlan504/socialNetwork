@@ -1,7 +1,10 @@
 {%  extends "newsfeed/layout.html" %}
 
 {% block body %}
-    <h1>Timbook</h1>
+    <div class="navbar">
+        <h1>Timbook</h1>
+        <a href="{% url 'users:logout' %}">Log out</a>
+    </div>
     <hr>
     <img src="{{ user.profile.image.url }}" style="float: left;" width="100px">
     <h2>{{ user.username }}</h2>
