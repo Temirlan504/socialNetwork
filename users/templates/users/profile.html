@@ -2,10 +2,13 @@
 
 {% block body %}
     <div class="navbar">
-        <h1>Timbook</h1>
+        <a href="{% url 'newsfeed:main' %}"><h1>Timbook</h1></a>
         <a href="{% url 'users:logout' %}">Log out</a>
     </div>
     <hr>
-    <img src="{{ user.profile.image.url }}" style="float: left;" width="100px">
+    <img src="{{ user.profile.image.url }}" width="100px">
     <h2>{{ user.username }}</h2>
+    <p>{{ user.profile.bio }}</p>
+
+    <a href="{% url 'users:update' %}">Update profile</a>
 {% endblock %}
