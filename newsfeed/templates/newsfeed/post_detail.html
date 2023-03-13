@@ -7,11 +7,8 @@
         <a href="{% url 'users:logout' %}">Log out</a>
     </div>
     <hr>
-    {% for post in posts %}
-        <h6>{{ post.author }}</h6>
-        <h6>{{ post.date_posted }}</h6>
-        <a href="{% url 'newsfeed:post_detail' post.id %}"><h2>{{ post.title }}</h2></a>
-        <p>{{ post.content }}</p>
-        <hr>
-    {% endfor %}
+    <h6>{{ object.author }}</h6>
+    <h6>{{ object.date_posted }}</h6>
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.content }}</p>
 {% endblock %}
