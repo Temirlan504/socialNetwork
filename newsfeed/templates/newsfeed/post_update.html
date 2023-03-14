@@ -1,0 +1,15 @@
+{% extends "newsfeed/layout.html" %}
+
+{% block body %}
+    <div class="navbar">
+        <a href="{% url 'newsfeed:main' %}"><h1>Timbook</h1></a>
+    </div>
+    <hr>
+    
+    <h2>Update - {{ object.title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit" value="Update">
+    </form>
+{% endblock %}

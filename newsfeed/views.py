@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from .models import Post
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 
 class PostListView(ListView):
     # dispatch handles all the requests
@@ -16,3 +17,16 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+class PostUpdateView(UpdateView):
+    model = Post
+    fields = ["title", "content"]
+    template_name = "newsfeed/post_update.html"
+
+    def get_success_url(self):
+        return reverse_lazy('newsfeed:post_detail', kwargs={'pk': self.object.pk})
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = "newsfeed/post_delete.html"
+    success_url = reverse_lazy('newsfeed:main')
