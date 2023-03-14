@@ -11,7 +11,7 @@
         <h6>{{ post.author }}</h6>
         <h6>{{ post.date_posted }}</h6>
         <a href="{% url 'newsfeed:post_detail' post.id %}"><h2>{{ post.title }}</h2></a>
-        <p>{{ post.content }}</p>
+        <p>{{ post.content|linebreaksbr|add:' '|safe }}</p>
         <hr>
     {% endfor %}
 {% endblock %}
