@@ -3,7 +3,7 @@
 {% block body %}
     <div class="navbar">
         <a href="{% url 'newsfeed:main' %}"><h1>Timbook</h1></a>
-        <a href="{% url 'users:profile' %}"><img src="{{ user.profile.image.url }}" width="40px"></a>
+        <a href="{% url 'users:profile' user.username %}"><img src="{{ user.profile.image.url }}" width="40px"></a>
         <a href="{% url 'users:logout' %}">Log out</a>
     </div>
     <hr>
